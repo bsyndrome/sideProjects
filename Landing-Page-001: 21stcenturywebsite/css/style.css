@@ -1,0 +1,602 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body img {
+    width: 70%;
+}
+
+.main-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 50%;
+    height: 5px;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin: auto;
+}
+
+/* Nav */
+nav {
+    position: relative;
+    width: 100%;
+}
+
+.nav-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255,255,255,.8);
+    position: fixed;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    backdrop-filter: blur(5px);
+    transition: .5s;
+    z-index: 100;
+}
+
+.nav-cont.actived {
+    background-color: rgba(255,255,255,1);
+    backdrop-filter: blur(0);
+    transition: .5s;
+}
+
+.nav-list {
+    display: none;
+}
+
+.nav-btn {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-right: 40px;
+    transition: .5s;
+    z-index: 8;
+}
+
+.nav-btn span {
+    position: absolute;
+}
+
+.nav-btn span.actived {
+    color: white;
+    transition: .5s;
+}
+
+.nav-btn.actived {
+    background-color: #555;
+    transition: .5s;
+}
+
+.nav-btn input {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: .0;
+    z-index: 10;
+}
+
+nav .nav-list-responsive {
+    background-color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    transform: translateY(-150vh);
+    transition: .2s;
+}
+
+nav .nav-list-responsive.actived {
+    transform: translateY(0);
+    transition: .2s;
+    z-index: 999;
+}
+
+.nav-menu-responsive {
+    display: block;
+    padding: 0 20px;
+    line-height: 50px;
+    background-color: white;
+    height: 50px;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    z-index: 9999;
+}
+
+.nav-menu-responsive:active {
+    font-weight: 700;
+}
+
+.menu-ctx {
+    padding: 10px 30px;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+
+.menu-ctx:hover {
+    background-color: black;
+    color: white;
+}
+
+.nav-menu-responsive:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+/* Header */
+.intro {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.intro img {
+    width: 50%;
+}
+
+.intro-title {
+    font-size: 1.5rem;
+}
+
+.intro-cont .intro-desc {
+    font-size: 1rem;
+    margin: 5px auto;
+}
+
+.intro-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: 20px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-weight: bold;
+    margin: 10px;
+    color: black;
+}
+
+.intro-link:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Feature */
+.feature-1,
+.feature-2,
+.feature-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+    text-align: center;
+}
+
+.feature-thumb,
+.feature-txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.feature-title {
+    margin: 10px auto;
+    font-size: 1.5rem;
+}
+
+.feature-desc {
+    font-size: .9rem;
+    width: 75%;
+    text-align: center;
+}
+
+/* Comment */
+.comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.comment-list {
+    margin: 20px auto;
+}
+
+.comment-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+    padding: 10px;
+    width: 275px;
+    background-color: #f5f5f5;
+    height: 200px;
+    border: 1px solid #f0f0f0;
+}
+
+.comment-cont img {
+    width: 80px;
+    height: 80px;
+    margin: 5px auto;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px #aaa;
+}
+
+.comment-cont .comment-name {
+    font-size: 0.8rem;
+}
+
+.comment-cont .comment-jobs {
+    font-size: 0.8rem;
+    font-weight: 200;
+    margin: 2.5px auto;
+    color: #888;
+}
+
+.comment-cont .comment-line {
+    width: 80%;
+    height: 2px;
+    background-color: #eee;
+    margin: 10px auto;
+}
+
+.comment-cont .comment-text {
+    font-size: 1rem;
+    text-align: center;
+    margin: 7.5px auto;
+    width: 60%;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* contact */
+.contact {
+    background-color: #222;
+    color: white;
+    z-index: 10;
+}
+
+.contact-cont {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.contact form label:first-child {
+    margin: 0 0 10px;
+}
+
+.contact form label {
+    font-size: .9rem;
+    margin: 10px 0;
+}
+
+.contact form input#name,
+.contact form input#email {
+    height: 20px;
+    padding: 5px;
+}
+
+.contact form textarea#comment {
+    font-family: Sans-Serif;
+    padding: 5px;
+    height: 100px;
+}
+
+.contact form button {
+    background-color: #222;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: 20px;
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-weight: bold;
+    margin: 20px;
+    color: white;
+}
+
+.contact form button:hover {
+    background-color: white;
+    color: #222;
+}
+
+.sosmed-contact-separator {
+    display: none;
+}
+
+.sosmed-list {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+
+.sosmed-list .sosmed {
+    width: 30px;
+    height: 30px;
+    color: white;
+    padding: 5px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.sosmed-list .sosmed-txt {
+    color: white;
+    display: none;
+}
+
+.sosmed:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    font-size: .75rem;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Anim */
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Small device Landscape Phone mode*/
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .comment .comment-list {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Responsive Breakpoint for Navigation Bar */
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 768px) {
+    nav .nav-btn,
+    nav .nav-list-responsive,
+    nav .nav-menu-responsive {
+        display: none;
+    }
+
+    nav .nav-list {
+        display: flex;
+        justify-content: flex-end;
+        width: 40%;
+        margin-right: 30px;
+    }
+    
+    nav .nav-list a {
+        color: black;
+    }
+    
+    nav .nav-menu {
+        margin: 0 10px;
+        text-decoration: none;
+    }
+    
+    nav .nav-menu:hover {
+        font-weight: 700;
+    }
+
+}
+
+/* Medium devices (landcape phone, portrait tablets and large phones, 568px and up) */
+@media screen and (min-width: 568px) {
+    .intro-cont {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    
+    .intro-thumb {
+        width: 40%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .intro-txt {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40%;
+    }
+    
+    .intro-txt .intro-title,
+    .intro-txt .intro-desc {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .intro-txt .intro-title {
+        font-size: 2.5rem;
+    }
+    
+    .intro-txt .intro-desc {
+        font-size: 1.25rem;
+    }
+    
+    .intro-txt .intro-link {
+        width: 100px;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .feature-1,
+    .feature-2,
+    .feature-3 {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .feature-thumb {
+        width: 50%;
+    }
+    
+    .feature-txt {
+        width: 40%;
+    }
+    
+    .feature-txt .feature-title {
+        font-size: 2.5rem;
+    }
+    
+    .feature-txt .feature-desc {
+        font-size: 1.10rem;
+    }
+    
+    .feature-1 .feature-txt,
+    .feature-3 .feature-txt {
+        order: 1;
+    }
+    
+    .feature-1 .feature-thumb,
+    .feature-3 .feature-thumb {
+        order: 2;
+    }
+    
+    .feature-thumb,
+    .feature-txt {
+        border: 0px solid red;
+    }
+    
+    .feature-1 .feature-title,
+    .feature-3 .feature-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: right;
+        width: 100%;
+    }
+    
+    .feature-1 .feature-desc,
+    .feature-3 .feature-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        text-align: right;
+        width: 100%;
+    }
+    
+    .feature-2 .feature-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .feature-2 .feature-desc {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .comment-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    
+    .contact {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .contact-cont {
+        width: 50%;
+    }
+    
+    .sosmed-cont {
+        width: 50%;
+    }
+    
+    .sosmed-list {
+        flex-direction: column;
+    }
+    
+    .sosmed {
+        display: flex;
+        color: white;
+        margin: 10px 0;
+    }
+    
+    .sosmed fa {
+        position: relative;
+    }
+    
+    .sosmed .sosmed-txt {
+        position: absolute;
+        display: inline-block;
+        width: 100px;
+        margin-left: 175px;
+        font-size: 1.25rem;
+    }
+}
+
